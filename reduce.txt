@@ -1,0 +1,15 @@
+1. const arr=[{num: 1},{num: 2},{num:3},{num: 4},{num: 5}
+           ]
+const total= arr.reduce((currentTotal,item)=>{
+  return item.num+currentTotal
+},0)
+console.log(total)  //sum of all no.
+
+
+
+2. const arr=[{num: 1},{num: 2},{num:3},{num: 4},{num: 5}
+           ]
+const total= arr.reduce((currentTotal,item)=>{
+  return item.num%2!=0 + currentTotal
+},0)
+console.log(total)  //sum of all odd no.
