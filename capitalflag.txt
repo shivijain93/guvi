@@ -1,0 +1,23 @@
+1. var request= new XMLHttpRequest()
+request.open('GET','https://restcountries.eu/rest/v2/all', true)
+request.onload= function(){
+  var data= JSON.parse(this.response)
+for(var i in data){
+  var key= data[i].name;
+  var val= data[i].capital;
+  console.log(key, val);
+}
+}
+request.send()  //country name with capital
+
+2. var request= new XMLHttpRequest()
+request.open('GET','https://restcountries.eu/rest/v2/all', true)
+request.onload= function(){
+  var data= JSON.parse(this.response)
+for(var i in data){
+  var key= data[i].name;
+  var val= data[i].flag;
+  console.log(key, val);
+}
+}
+request.send()   //country name with flags
