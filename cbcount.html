@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title> doc </title>
+	</head>
+	<body>
+	<script>
+	
+    function timer(i, cb){
+	if(i>0) {
+        
+        setTimeout(function(){
+		i--;
+            if(i==0){
+               document.write("welcome")
+				
+            }
+            else{
+                document.write(i+"<br>");
+				timer(i);
+            }
+			var result= i;
+			cb(result)
+        },1000);
+    }
+    
+}
+timer(11)
+
+	</script>
+	</body>
+</html>
