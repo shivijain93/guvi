@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>shivi</title>
+    <style>
+
+        .signupbtn {
+            background-color: blue;
+            color: white;
+            padding: 14px 6px;
+            margin: 0px 0px 15px 250px;
+            border: none;
+            cursor: pointer;
+            width: 33%;
+            border-radius: 6px;
+        }
+
+        h2 {
+            text-align: center
+        }
+
+        .name {
+			background-color: pink;
+			
+            width: 30%;
+            padding: 11px 9px;
+            margin: 0px 0px 15px 250px;
+            border-radius: 6px;
+            border: 5px;
+        }
+
+        form {
+            padding: 279px;
+            margin: -224px 0px 0px 0px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="http://localhost:3000/users" method="POST">
+        <div class="b">
+            
+            <h2>Sign Up Form</h2>
+            
+            <input type="email" class="name" placeholder="Email" name="email"><br>
+            <input type="password" class="name" placeholder="*******" name="password"><br>
+            
+
+
+            <div>
+
+                <input type="submit" value="SignUp" class="signupbtn">
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>
