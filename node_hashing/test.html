@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>shivi</title>
+	</head>
+    <style>
+
+        .signupbtn {
+            background-color: blue;
+            color: white;
+            padding: 14px 6px;
+            margin: 0px 0px 15px 250px;
+            border: none;
+            cursor: pointer;
+            width: 33%;
+            border-radius: 6px;
+        }
+		
+		.insertbtn {
+            background-color: #38e03d;
+            color: white;
+            padding: 14px 6px;
+            margin: 0px 0px 15px 200px;
+            border: none;
+            cursor: pointer;
+            width: 10%;
+            border-radius: 6px;
+        }
+
+        .deletebtn {
+            background-color: #e02323;
+            color: white;
+            padding: 14px 6px;
+            margin: 0px 0px 15px 12px;
+            border: none;
+            cursor: pointer;
+            width: 10%;
+            border-radius: 6px;
+        }
+
+		.updatebtn {
+            background-color: #4967e6;
+            color: white;
+            padding: 14px 6px;
+            margin: 0px 0px 15px 12px;
+            border: none;
+            cursor: pointer;
+            width: 10%;
+            border-radius: 6px;
+			}
+			
+		.displaybtn {
+            background-color: brown;
+            color: white;
+            padding: 14px 6px;
+            margin: 0px 0px 15px 12px;
+            border: none;
+            cursor: pointer;
+            width: 10%;
+            border-radius: 6px;
+			}
+			
+        h2 {
+            text-align: center
+        }
+
+        .name {
+			background-color: pink;
+			
+            width: 45%;
+            padding: 11px 9px;
+            margin: 0px 0px 15px 200px;
+            border-radius: 6px;
+            border: 5px;
+        }
+
+        form {
+            padding: 279px;
+            margin: -224px 0px 0px 0px;
+        }
+    </style>
+	
+	<script>
+		function sendData(){
+var data={
+email: document.getElementById("email").value,
+password: document.getElementById("password").value
+};
+
+fetch("http://localhost:3000/users",{
+method:"POST",
+headers:{
+Accept:"application/json",
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
+})
+.then(function(data){
+console.log(data);
+})
+.catch(function(error){
+console.log(error);
+})
+}
+		
+        function insert()
+        {
+            var data={
+                email:document.getElementById("email").value,
+                password:document.getElementById("password").value
+            };
+            
+            fetch("http://localhost:3000/users",{
+                method:"POST",
+                headers:{
+                    Accept:"application/json",
+                    "content-Type":"application/json"
+                },
+                body:JSON.stringify(data)
+            })
+            .then(function(data){
+                console.log(data.json());
+
+            })
+        }
+
+        function display()
+        {
+            var data={email:document.getElementById("email").value};
+            fetch("http://localhost:3000/",{
+                method:'GET'
+            })
+            .then(function(data){
+                console.log(data.json())
+        })
+
+        }
+
+        function update()
+        {
+            var data={ email:document.getElementById("email").value,
+                password:document.getElementById("password").value}
+            fetch("http://localhost:3000/users",{
+                method:"PUT",
+                headers:{
+                    Accept:"application/json",
+                    "content-Type":"application/json"
+                },
+                body:JSON.stringify(data)
+            })
+            .then(function(data){
+                console.log(data.json())
+        })
+        }
+
+        function del()
+        {
+            var data={email:document.getElementById("email").value,
+			password:document.getElementById("password").value}
+            fetch("http://localhost:3000/users",{
+            method:"DELETE",
+            headers:{
+                    Accept:"application/json",
+                    "content-Type":"application/json"
+                    },
+                    body:JSON.stringify(data)
+                })
+
+            .then(function(data){
+                console.log(data.json())
+            })
+        }
+
+    </script>
+
+
+
+<body>
+    <form >
+        <div class="b">
+            
+            <h2>Sign Up Form</h2>
+            
+            
+            <input type="email" class="name" id="email" placeholder="email" name="email" required><br>
+			<input type="password" class="name" id="password" placeholder="password" name="email" required><br>
+            
+
+
+            <div>
+
+                <input type="submit" value="SignUp"  class="signupbtn" onsubmit= "sendData();return false;">
+				<input type="submit" value="Insert" class="insertbtn" onclick="insert(); return false;">
+                <input type="submit" value="Update" class="updatebtn" onclick="update(); return false;">
+                <input type="submit" value="Display" class="displaybtn" onclick="display(); return false;">                
+                <input type="submit" value="Delete" class="deletebtn" onclick="del(); return false;">
+			</div>
+        </div>
+    </form>
+
+</body>
+</html>
+
+
