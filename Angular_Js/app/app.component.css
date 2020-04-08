@@ -1,0 +1,9 @@
+.boxColor{
+  color: red;
+  display: none;
+}
+
+.boxColor2{
+  color: blue;
+  visibility: hidden;
+}
