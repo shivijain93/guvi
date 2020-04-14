@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shivi</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <style>
+        .itm {
+            
+            padding: 9px;
+        }
+
+
+        .signupbtn {
+            background-color: blue;
+            color: white;
+            padding: 14px 6px;
+            margin: 0px 0px 15px 230px;
+            border: none;
+            cursor: pointer;
+            width: 18%;
+            border-radius: 6px;
+        }
+
+        .resetbtn {
+            background-color: red;
+            color: white;
+            padding: 14px 6px;
+            margin: 0px 0px 15px 2px;
+            border: none;
+            cursor: pointer;
+            width: 14%;
+            border-radius: 6px;
+        }
+
+        h2 {
+            text-align: center;
+            color: black;
+        }
+
+        .N {
+		background-color: white;
+            width: 30%;
+            padding: 11px 9px;
+            margin: 0px 0px 15px 230px;
+            border-radius: 4px;
+            border: 1px;
+        }
+
+        form {
+		background-color: pink;
+            padding: 279px;
+            margin: -224px 0px 0px 0px;
+        }
+        .reg {
+            margin: 0px 0px 0px 250px;
+        }
+    </style>
+    <script>
+        
+        function sendData() {
+            var data = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("pwd").value,
+                contact: document.getElementById("contact").value,
+                address: document.getElementById("addr").value
+
+
+            };
+
+            fetch("http://localhost:3000/register", {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }).then(function (data) {
+                console.log(data.json())
+
+            })
+        }
+        
+
+        
+    </script>
+
+</head>
+
+<body>
+    <form onsubmit="sendData();return false;">
+        <div class="itm">
+
+            <h2>Sign Up Form</h2>
+            <input type="text" class="N" id="name" placeholder="Name" name="name" required><br>          
+            <input type="email" class="N" id="email" placeholder="Email" name="email" required><br>
+            <input type="password" class="N" id="pwd" placeholder="Password" name="pwd" required><br>
+            <input type="number" class="N" id="contact" placeholder="Contact Number" name="contact" required><br>
+            <input type="text" class="N" id="addr" placeholder="Address" name="address" required><br>
+
+
+
+            <div>
+
+                <input type="submit" id="savebtn" value="Save" class="signupbtn">
+                <input type="reset" value="Cancel" class="resetbtn">
+
+            </div>
+            <div class="reg">
+                <label>Already Registered!.. </label><a href="login.html" class="">Login</a>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>
