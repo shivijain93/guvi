@@ -1,0 +1,28 @@
+<button (click) ="addproduct()">AddNew</button>
+<div class="row">
+    <div class="column">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">productdetails</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of listData " >
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.productdetails }}</td>
+                
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
